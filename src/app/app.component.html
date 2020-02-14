@@ -8,4 +8,62 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
   </div>
-</nav>
+</nav><!-- /Menu -->
+
+<div class="contenedor">
+  <div class="header">
+    <h1>LIBROS.APP</h1>
+  </div>
+  <div class="filtros">
+    <div class="form-group row">
+      <div class="col-sm-12">
+        <input type="text" class="form-control" placeholder="Buscar nombre o ISBN" [(ngModel)]="busqueda">
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <section class="columna1 col-sm-6  order-2 order-sm-1 p-4">
+      <h2 class="text-primary mb-4">Listado de Libros</h2>
+
+      <ul class="lista list-group">
+        <li *ngFor="let l of libros | libroFiltro : busqueda" (click)="seleccionarLibro(l)"
+          class="list-group-item {{ (l.isbn==lSeleccionado.isbn) ? 'active' : '' }}">
+          <h6 class="nombre-libro">{{l.title}}</h6>
+          <p class="pb-0 mb-0 {{ (l.isbn==lSeleccionado.isbn) ? 'text-white' : 'text-muted' }}">{{l.author}}</p>
+          <p class="py-0 my-0 {{ (l.isbn==lSeleccionado.isbn) ? 'text-white' : 'text-muted' }}">ISBN: {{l.isbn}}</p>
+        </li>
+      </ul>
+
+    </section>
+
+    <section *ngIf="lSeleccionado !== ''; else elseBlock" class="columna2 col-sm-6  order-1 order-sm-2 p-4">
+      <div class="detalle-header">
+        <h3 class="">{{lSeleccionado.title}}</h3>
+        <p class="mb-4">"{{lSeleccionado.subtitle}}"</p>
+        <p class="text-muted my-0"> ISBN: {{lSeleccionado.isbn}}</p>
+        <p class="my-0"><b>Autor: </b>{{lSeleccionado.author}}</p>
+        <p class="my-0"><b>Fecha de publicación: </b>{{lSeleccionado.published}}</p>
+        <p class="my-0"><b>Editorial: </b>{{lSeleccionado.publisher}}</p>
+        <p class="mt-0"><b>Páginas: </b>{{lSeleccionado.pages}}</p>
+        <h6 class="mt-4">Descripción</h6>
+        <p>{{lSeleccionado.description}}</p>
+        <p class="text-muted"><a target="_blank" href="{{lSeleccionado.website}}">Ir a la web</a></p>
+
+      </div>
+    </section>
+
+    <ng-template #elseBlock>
+
+      <section class="columna2 col-sm-6 order-1 order-sm-2 text-primary p-4">
+        <h2 class="mb-4">Bienvenido a Libros.app</h2>
+        <h5 class="text-dark">Selecciona un libro para abrir el detalle</h5>
+      </section>
+
+    </ng-template>
+
+  </div>
+
+
+
+</div>
