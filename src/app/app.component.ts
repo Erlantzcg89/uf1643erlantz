@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Libro } from './model/libro';
 import { LIBROS } from './model/constantes';
+import { RecuentoService } from './services/recuento.service';
 
 @Component({
   selector: 'app-root',
@@ -14,7 +15,7 @@ export class AppComponent {
   lSeleccionado: any;
   busqueda: string;
 
-  constructor() {
+  constructor(private recuentoService: RecuentoService) {
     console.log('AppComponent constructor');
 
     this.libros = [];

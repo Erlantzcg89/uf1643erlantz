@@ -1,3 +1,5 @@
+<div class></div>
+
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <a class="navbar-brand" href="#">Menu</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -17,7 +19,7 @@
   <div class="filtros">
     <div class="form-group row">
       <div class="col-sm-12">
-        <input type="text" class="form-control" placeholder="Buscar nombre o ISBN" [(ngModel)]="busqueda">
+        <input type="text" class="form-control" placeholder="Buscar por nombre o ISBN" [(ngModel)]="busqueda">
       </div>
     </div>
   </div>
@@ -34,6 +36,7 @@
           <p class="py-0 my-0 {{ (l.isbn==lSeleccionado.isbn) ? 'text-white' : 'text-muted' }}">ISBN: {{l.isbn}}</p>
         </li>
       </ul>
+      <p class="text-danger" *ngIf="recuentoService.getRecuento() === 0">No existen resultados para la búsqueda ...</p>
 
     </section>
 
@@ -46,7 +49,7 @@
         <p class="my-0"><b>Fecha de publicación: </b>{{lSeleccionado.published}}</p>
         <p class="my-0"><b>Editorial: </b>{{lSeleccionado.publisher}}</p>
         <p class="mt-0"><b>Páginas: </b>{{lSeleccionado.pages}}</p>
-        <h6 class="mt-4">Descripción</h6>
+        <h6 class="mt-4"><b>Descripción</b></h6>
         <p>{{lSeleccionado.description}}</p>
         <p class="text-muted"><a target="_blank" href="{{lSeleccionado.website}}">Ir a la web</a></p>
 

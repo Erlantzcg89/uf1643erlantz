@@ -1,15 +1,21 @@
 import { Pipe, PipeTransform } from '@angular/core';
+import { RecuentoService } from '../services/recuento.service';
 
 @Pipe({
   name: 'libroFiltro'
 })
+
+/**
+  * filtro para filtrar por title de libro
+  * @param recetas: array de libros
+  * @param busqueda: cadena de texto a filtrar
+  */
 export class LibroPipe implements PipeTransform {
 
-  /**
-    * filtro para filtrar por title de libro
-    * @param recetas: array de libros
-    * @param busqueda: cadena de texto a filtrar
-    */
+  constructor(private recuentoService: RecuentoService) {
+
+  }
+
   transform(libros: any, busqueda: string): any {
 
     let resultado = libros;
@@ -28,6 +34,8 @@ export class LibroPipe implements PipeTransform {
       });
 
     }
+
+    this.recuentoService.setRecuento(resultado.length);
 
     return resultado;
   }// transform
