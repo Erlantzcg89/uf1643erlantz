@@ -1,21 +1,19 @@
-  .fondo {
-    // background-image: url(../assets/imagenes/fondo2.jpeg);
-    // background-repeat: repeat-y;
-    // background-size: 100%;
-  }
+nav {
+  margin: 0;
+}
 
-  nav {
-    margin: 0;
-  }
+.contenedor {
 
-  .contenedor {
+  margin: 0;
+  padding: 0 10px 10px;
+}
 
-    margin: 0;
-    padding: 0 10px 10px;
-  }
+h1 {
+  margin: 0 0 20px;
+  padding-top: 20px;
+  text-align: center;
+}
 
-  h1 {
-    margin: 0 0 20px;
-    padding-top: 20px;
-    text-align: center;
-  }
+.icono-libro {
+  font-size: 38px;
+}

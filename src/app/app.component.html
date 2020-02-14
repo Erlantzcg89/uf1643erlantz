@@ -36,14 +36,14 @@
             <p class="py-0 my-0 {{ (l.isbn==lSeleccionado.isbn) ? 'text-white' : 'text-muted' }}">ISBN: {{l.isbn}}</p>
           </li>
         </ul>
-        <p class="text-danger" *ngIf="recuentoService.getRecuento() === 0">No existen resultados para la búsqueda ...
-        </p>
+        <p class="text-danger" *ngIf="recuentoService.getRecuento() === 0">No existen resultados para la búsqueda</p>
 
       </section>
 
       <section *ngIf="lSeleccionado !== ''; else elseBlock" class="columna2 col-sm-6  order-1 order-sm-2 p-4 bg-white">
-        <div class="detalle-header">
-          <h3 class="">{{lSeleccionado.title}}</h3>
+        <div class="">
+
+          <h3 class=""><i class="icono-libro fas fa-book"></i> {{lSeleccionado.title}}</h3>
           <p class="mb-4">"{{lSeleccionado.subtitle}}"</p>
           <p class="text-muted my-0"> ISBN: {{lSeleccionado.isbn}}</p>
           <p class="my-0"><b>Autor: </b>{{lSeleccionado.author}}</p>
